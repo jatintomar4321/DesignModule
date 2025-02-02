@@ -18,7 +18,7 @@ const images = [
   },
 ];
 
-export default function Hero() {
+export default function HeroSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 

@@ -1,9 +1,9 @@
 import DesignSection from "./components/design-section"
 import Footer from "./components/Footer"
-import Hero from "./components/Hero"
+import HeroSection from "./components/HeroSection"
 import Navbar from "./components/Navbar"
-import ProjectsShowcase from "./components/projects-showcase"
-import ServicesShowcase from "./components/services-showcase"
+import ProjectsShowcase from "./components/ProjectsShowcase"
+import ServicesShowcase from "./components/ServicesShowcase"
 import Testimonials from "./components/testimonials"
 
 
@@ -11,7 +11,7 @@ const page = () => {
   return (
     <div className='bg-white'>
     <Navbar/>
-    <Hero/>
+    <HeroSection/>
     <DesignSection/>
     <ProjectsShowcase/>
     <ServicesShowcase/>
