@@ -1,5 +1,5 @@
 "use client"
-
+import { forwardRef } from "react"
 import { useState } from "react"
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
@@ -75,7 +75,7 @@ const services = [
 
 const MotionSheetContent = motion(SheetContent)
 
-export default function ServicesShowcase() {
+const ServicesShowcase = forwardRef((props, ref) => {
   const [selectedService, setSelectedService] = useState(null)
   const [isOpen, setIsOpen] = useState(false)
 
@@ -86,7 +86,7 @@ export default function ServicesShowcase() {
 
   return (
     <>
-      <section className="px-4 py-12 md:px-6 lg:px-8">
+      <section ref={ref}  className="px-4 py-12 md:px-6 lg:px-8">
         <h2 className="text-4xl font-bold mb-8">Our Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {services.map((service) => (
@@ -150,5 +150,6 @@ export default function ServicesShowcase() {
       </Sheet>
     </>
   )
-}
+})
+export default ServicesShowcase
 

@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { forwardRef } from "react"
 
 const interiorDesignImages = [
   "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
@@ -30,9 +31,9 @@ const projects = [
   { title: "Bhavantarana", location: "Mumbai", year: "1991", id: 18, imageUrl: interiorDesignImages[5] },
 ]
 
-export default function ProjectsShowcase() {
+const ProjectsShowcase = forwardRef((props, ref) => {
   return (
-    <section className="px-4 py-12 md:px-6 lg:px-8">
+    <section ref={ref}  className="px-4 py-12 md:px-6 lg:px-8">
       <h2 className="text-3xl font-bold mb-8">Our Projects</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 text-black text-xs lg:grid-cols-6 xl:grid-cols-6 gap-1">
         {projects.map((project) => (
@@ -60,5 +61,6 @@ export default function ProjectsShowcase() {
       </div>
     </section>
   )
-}
+})
+export default ProjectsShowcase
 
