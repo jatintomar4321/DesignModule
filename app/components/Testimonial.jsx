@@ -147,7 +147,7 @@ const TestimonialMarquee = () => {
   )
 }
 
-const Testimonials = () => {
+const Testimonial = () => {
     
   return (
     <section className="px-4 py-16 md:px-6 lg:px-8 bg-white">
@@ -157,5 +157,5 @@ const Testimonials = () => {
   )
 }
 
-export default Testimonials
+export default Testimonial
 

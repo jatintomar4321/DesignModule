@@ -7,7 +7,7 @@ import HeroSection from "./components/HeroSection"
 import Navbar from "./components/Navbar"
 import ProjectsShowcase from "./components/ProjectsShowcase"
 import ServicesShowcase from "./components/ServicesShowcase"
-import Testimonials from "./components/Testimonials"
+import Testimonial from "./components/Testimonial"
 import { useRouter, usePathname } from "next/navigation"
 
 const LandingPage = () => {
@@ -71,7 +71,7 @@ const LandingPage = () => {
         <ProjectsShowcase ref={projectsRef} />
         <ServicesShowcase ref={serviceRef} />
       </div>
-      <Testimonials />
+      <Testimonial />
       <Footer />
     </div>
   )
