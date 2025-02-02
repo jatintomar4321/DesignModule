@@ -1,14 +1,15 @@
 import Image from "next/image"
+import { Button } from "@/components/ui/button"
 
 export default function ProjectSection() {
   return (
-    <section className="container bg-white text-black mx-auto px-4 py-16 md:py-24">
+    <section className="container mx-auto px-4 py-16 md:py-24">
       <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
         <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg">
-          <img
+          <Image
             src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-31%20at%206.10.49%E2%80%AFPM%5B1%5D-WC5PIp75CnvPTiO03n8JyXjpVicWUi.png"
             alt="Modern white Mediterranean-style house with arched windows and balconies"
-            
+            fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 50vw"
             priority
@@ -20,7 +21,7 @@ export default function ProjectSection() {
             We design every project as a one-off
           </h2>
 
-          <div className="space-y-6 t">
+          <div className="space-y-6 text-gray-600">
             <div className="space-y-4">
               <p className="leading-relaxed">
                 <span className="font-medium text-black">Client-Centered Design:</span> Your needs and preferences are
@@ -47,9 +48,13 @@ export default function ProjectSection() {
               </p>
             </div>
 
-            <button className="mt-8 px-6 py-3 text-base font-medium border border-black rounded-md hover:bg-black hover:text-white transition-colors">
+            <Button
+              variant="outline"
+              size="lg"
+              className="mt-8 text-base font-medium hover:bg-black hover:text-white transition-colors"
+            >
               DISCOVER MORE
-            </button>
+            </Button>
           </div>
         </div>
       </div>
