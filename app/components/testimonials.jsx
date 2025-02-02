@@ -148,6 +148,7 @@ const TestimonialMarquee = () => {
 }
 
 const Testimonials = () => {
+    
   return (
     <section className="px-4 py-16 md:px-6 lg:px-8 bg-white">
       <h2 className="text-4xl font-bold mb-12 text-center">Our Testimonials</h2>
