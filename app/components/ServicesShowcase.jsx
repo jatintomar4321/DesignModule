@@ -95,7 +95,7 @@ const ServicesShowcase = forwardRef((props, ref) => {
               onClick={() => handleServiceClick(service)}
               className="group block relative text-left"
             >
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg">
+              <div className="relative aspect-[4/3] w-full overflow-hidden ">
                 <Image
                   src={service.imageUrl || "/placeholder.svg"}
                   alt={service.title}
