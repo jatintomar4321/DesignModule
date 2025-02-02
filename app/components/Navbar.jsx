@@ -3,11 +3,12 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 
-const Navbar = ({ onAboutClick, onProjectsClick, onServiceClick }) => {
+const Navbar = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0)
   const [visible, setVisible] = useState(true)
+  const router = useRouter()
   const pathname = usePathname()
 
   useEffect(() => {
@@ -18,23 +19,36 @@ const Navbar = ({ onAboutClick, onProjectsClick, onServiceClick }) => {
     }
 
     window.addEventListener("scroll", handleScroll)
-
     return () => window.removeEventListener("scroll", handleScroll)
   }, [prevScrollPos])
 
-  const scrollToServices = (e) => {
-    if (pathname === "/") {
-      e.preventDefault()
-      const servicesSection = document.getElementById("services-showcase")
-      if (servicesSection) {
-        servicesSection.scrollIntoView({ behavior: "smooth" })
-      }
+  // Scroll to Section with smooth animation
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id)
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
+  }
+
+  // Handle both navigation & scrolling
+  const handleNavigation = (id) => {
+    if (pathname !== "/") {
+      router.push("/")
+
+      // Wait for page transition, then scroll smoothly
+      setTimeout(() => {
+        scrollToSection(id)
+      }, 300)
+    } else {
+      scrollToSection(id)
     }
   }
 
   return (
     <nav
-      className={`bg-white fixed top-0 w-full transition-transform duration-300 ease-in-out z-50 ${visible ? "translate-y-0" : "-translate-y-full"}`}
+      className={`bg-white fixed top-0 w-full transition-transform duration-300 ease-in-out z-50 ${
+        visible ? "translate-y-0" : "-translate-y-full"
+      }`}
     >
       <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
@@ -44,22 +58,25 @@ const Navbar = ({ onAboutClick, onProjectsClick, onServiceClick }) => {
             </Link>
           </div>
           <div className="hidden md:flex items-center space-x-8">
-            <button onClick={onAboutClick}  href="/about" className="text-black hover:text-gray-600 transition-colors duration-200">
+            <button
+              onClick={() => handleNavigation("about")}
+              className="text-black hover:text-gray-600 transition-colors duration-200"
+            >
               About
             </button>
             <button
+              onClick={() => handleNavigation("services")}
               className="text-black hover:text-gray-600 transition-colors duration-200"
-              onClick={onServiceClick}
             >
               Services
             </button>
             <button
+              onClick={() => handleNavigation("projects")}
               className="text-black hover:text-gray-600 transition-colors duration-200"
-              onClick={onProjectsClick}
             >
               Projects
             </button>
-            <button  className="bg-black hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded transition-colors duration-200">
+            <button className="bg-black hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded transition-colors duration-200">
               Send Request
             </button>
           </div>
@@ -70,4 +87,3 @@ const Navbar = ({ onAboutClick, onProjectsClick, onServiceClick }) => {
 }
 
 export default Navbar
-

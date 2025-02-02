@@ -86,7 +86,7 @@ const ServicesShowcase = forwardRef((props, ref) => {
 
   return (
     <>
-      <section ref={ref}  className="px-4 py-12 md:px-6 lg:px-8">
+      <section ref={ref} id="services" className="px-4 py-12 md:px-6 lg:px-8">
         <h2 className="text-4xl font-bold mb-8">Our Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {services.map((service) => (

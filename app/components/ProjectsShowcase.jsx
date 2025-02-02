@@ -33,7 +33,7 @@ const projects = [
 
 const ProjectsShowcase = forwardRef((props, ref) => {
   return (
-    <section ref={ref}  className="px-4 py-12 md:px-6 lg:px-8">
+    <section ref={ref} id="projects"  className="px-4 py-12 md:px-6 lg:px-8">
       <h2 className="text-3xl font-bold mb-8">Our Projects</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 text-black text-xs lg:grid-cols-6 xl:grid-cols-6 gap-1">
         {projects.map((project) => (

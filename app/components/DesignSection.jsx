@@ -2,7 +2,7 @@ import { forwardRef } from "react"
 
 const DesignSection = forwardRef((props, ref) => {
   return (
-    <section ref={ref} className="max-w-xl mx-auto px-4 py-4 md:py-24">
+    <section ref={ref} id="about" className="max-w-xl mx-auto px-4 py-4 md:py-24">
       <div className=" mx-auto">
         <h1 className="text-3xl max-w-60 md:text-3xl lg:text-4xl font-medium text-black mb-2 md:mb-5 tracking-tighter">
           We design every project as a one-off
