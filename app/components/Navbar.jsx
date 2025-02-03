@@ -64,20 +64,21 @@ const Navbar = () => {
             >
               About
             </button>
-            <button
-              onClick={() => handleNavigation("services")}
-              className="text-black hover:text-gray-600 transition-colors duration-200"
-            >
-              Services
-            </button>
+            
             <button
               onClick={() => handleNavigation("projects")}
               className="text-black hover:text-gray-600 transition-colors duration-200"
             >
               Projects
             </button>
-            <button className="bg-black hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded transition-colors duration-200">
-              Send Request
+            <button
+              onClick={() => handleNavigation("services")}
+              className="text-black hover:text-gray-600 transition-colors duration-200"
+            >
+              Services
+            </button>
+            <button className="px-6 py-2 md:px-8 md:py-3 border border-black text-xs md:text-sm hover:bg-black hover:text-white transition-colors duration-300">
+              SEND REQUEST
             </button>
           </div>
         </div>

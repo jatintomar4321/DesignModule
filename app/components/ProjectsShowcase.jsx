@@ -1,5 +1,10 @@
+"use client"
+
 import Image from "next/image"
-import { forwardRef } from "react"
+import { forwardRef, useState, useEffect } from "react"
+import { motion, transform } from "framer-motion"
+import { blur } from "@cloudinary/url-gen/actions/effect"
+
 
 const interiorDesignImages = [
   "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
@@ -32,11 +37,27 @@ const projects = [
 ]
 
 const ProjectsShowcase = forwardRef((props, ref) => {
+  const [showAll, setShowAll] = useState(false)
+  const [isSmallScreen, setIsSmallScreen] = useState(false)
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsSmallScreen(window.innerWidth < 640)
+    }
+
+    checkScreenSize()
+    window.addEventListener("resize", checkScreenSize)
+
+    return () => window.removeEventListener("resize", checkScreenSize)
+  }, [])
+
+  const visibleProjects = isSmallScreen && !showAll ? projects.slice(0, 4) : projects
+
   return (
-    <section ref={ref} id="projects"  className="px-4 py-12 md:px-6 lg:px-8">
-      <h2 className="text-3xl font-bold mb-8">Our Projects</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 text-black text-xs lg:grid-cols-6 xl:grid-cols-6 gap-1">
-        {projects.map((project) => (
+    <section ref={ref} id="projects" className="px-4  md:px-6 lg:px-8">
+      <h2 className="text-2xl font-semibold tracking-tighter mb-4">Our Projects</h2>
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 text-black text-xs lg:grid-cols-6 xl:grid-cols-6 gap-1">
+        {visibleProjects.map((project) => (
           <div key={project.id} className="flex flex-col gap-2">
             <div className="relative aspect-square w-full overflow-hidden bg-gray-100">
               <Image
@@ -51,16 +72,41 @@ const ProjectsShowcase = forwardRef((props, ref) => {
               />
             </div>
             <div className="pb-2">
-            <h3 className="font-medium">{project.title}</h3>
-            <p className="text-xs text-gray-500">
-              {project.location}, {project.year}
-            </p>
+              <h3 className="font-medium">{project.title}</h3>
+              <p className="text-xs text-gray-500">
+                {project.location}, {project.year}
+              </p>
             </div>
           </div>
         ))}
       </div>
+      {isSmallScreen && !showAll && (
+        <motion.div className="mt-4 text-left">
+  <motion.button
+    whileTap={{ scale: 0.95 }}
+    whileHover="hover"
+    onClick={() => setShowAll(true)}
+    
+    className="relative text-sm font-medium text-black bg-white"
+  >
+    View More
+    <motion.div
+      className="absolute left-0 bottom-0 h-[2px] bg-black w-full"
+      initial={{ scaleX: 0 }}
+      variants={{
+        hover: { scaleX: 1 },
+      }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+    />
+  </motion.button>
+</motion.div>
+
+      )}
     </section>
   )
 })
+
+ProjectsShowcase.displayName = "ProjectsShowcase"
+
 export default ProjectsShowcase
 

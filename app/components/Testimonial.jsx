@@ -89,7 +89,7 @@ const testimonials = [
 
 const TestimonialCard = ({ testimonial, onHoverStart, onHoverEnd }) => (
   <motion.div
-    className="bg-white  border overflow-x-hidden w-[350px] flex-shrink-0 mx-1"
+    className="bg-white  border overflow-x-hidden w-[350px]  flex-shrink-0 mx-1"
     onHoverStart={onHoverStart}
     onHoverEnd={onHoverEnd}
   >
@@ -151,7 +151,7 @@ const Testimonial = () => {
     
   return (
     <section className="px-4 py-16 md:px-6 lg:px-8 bg-white">
-      <h2 className="text-4xl font-bold mb-12 text-center">Our Testimonials</h2>
+      <h2 className="text-3xl  font-semibold  mb-4 text-start">Our Testimonials</h2>
       <TestimonialMarquee />
     </section>
   )

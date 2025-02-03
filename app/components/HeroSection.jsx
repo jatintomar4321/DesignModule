@@ -80,7 +80,7 @@ export default function HeroSection() {
             <button
               key={index}
               className={`
-                w-2 h-2 rounded-full transition-all duration-300 focus:outline-none
+                w-[0.3rem] h-[0.3rem] rounded-full transition-all duration-300 focus:outline-none
                 ${currentImageIndex === index ? "bg-white scale-125" : "bg-white hover:bg-white"}
               `}
               onClick={() => goToSlide(index)}
