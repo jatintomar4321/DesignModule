@@ -9,6 +9,7 @@ import ProjectsShowcase from "./components/ProjectsShowcase"
 import ServicesShowcase from "./components/ServicesShowcase"
 import Testimonial from "./components/Testimonial"
 import { useRouter, usePathname } from "next/navigation"
+import Teams from "./components/Teams";
 
 const LandingPage = () => {
   const aboutRef = useRef(null)
@@ -69,6 +70,7 @@ const LandingPage = () => {
       <div data-scroll-section>
         <DesignSection ref={aboutRef} />
         <ProjectsShowcase ref={projectsRef} />
+        <Teams/>
         <ServicesShowcase ref={serviceRef} />
       </div>
       <Testimonial />

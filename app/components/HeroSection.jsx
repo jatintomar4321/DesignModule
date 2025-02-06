@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
+import { useState, useEffect } from "react"
+import Image from "next/image"
 
 const images = [
   {
@@ -16,34 +16,39 @@ const images = [
     src: "/2.png",
     alt: "Misty mountain valley with rolling hills",
   },
-];
+]
 
 export default function HeroSection() {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+  const [isHovering, setIsHovering] = useState(false)
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIsTransitioning(true);
+      setIsTransitioning(true)
       setTimeout(() => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        setIsTransitioning(false);
-      }, 500);
-    }, 5000);
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
+        setIsTransitioning(false)
+      }, 500)
+    }, 5000)
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearInterval(interval)
+  }, [])
 
   const goToSlide = (index) => {
-    setIsTransitioning(true);
+    setIsTransitioning(true)
     setTimeout(() => {
-      setCurrentImageIndex(index);
-      setIsTransitioning(false);
-    }, 500);
-  };
+      setCurrentImageIndex(index)
+      setIsTransitioning(false)
+    }, 500)
+  }
 
   return (
-    <div className="relative h-[85vh] w-full overflow-hidden">
+    <div
+      className="relative h-[85vh] w-full overflow-hidden"
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
       <div
         className="relative h-full w-full transition-transform duration-500 ease-out"
         style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
@@ -59,7 +64,7 @@ export default function HeroSection() {
               }}
             >
               <Image
-                src={image.src}
+                src={image.src || "/placeholder.svg"}
                 alt={image.alt}
                 fill
                 className="object-cover transition-transform duration-500 hover:scale-105"
@@ -68,7 +73,9 @@ export default function HeroSection() {
           ))}
         </div>
       </div>
-      <div className="absolute inset-0 flex items-end justify-start">
+      <div
+        className={`absolute inset-0 flex items-end justify-start transition-opacity duration-300 ${isHovering ? "opacity-100" : "opacity-0"}`}
+      >
         <h1 className="text-md md:text-md text-white font-medium drop-shadow-lg p-10">
           The House that Jack Built, Mumbai
         </h1>
@@ -90,5 +97,6 @@ export default function HeroSection() {
         </div>
       </div>
     </div>
-  );
+  )
 }
+
