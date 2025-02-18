@@ -27,7 +27,7 @@ const services = [
     id: 2,
     title: "Residential",
     imageUrl:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      "/res.jpg",
     services: [
       "Custom Home Design",
       "Interior Space Planning",
@@ -41,9 +41,9 @@ const services = [
   },
   {
     id: 3,
-    title: "Health Care",
+    title: "Outdoor",
     imageUrl:
-      "https://images.unsplash.com/photo-1538108149393-fbbd81895907?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      "/AK_1 - Photo.jpg",
     services: [
       "Emergency Room Design",
       "Operating Room Planning",
@@ -59,7 +59,7 @@ const services = [
     id: 4,
     title: "Interior",
     imageUrl:
-      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      "/13.jpg",
     services: [
       "Commercial Interiors",
       "Office Space Planning",

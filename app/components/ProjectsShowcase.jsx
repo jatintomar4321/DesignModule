@@ -5,12 +5,24 @@ import { forwardRef, useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
 const interiorDesignImages = [
-  "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1616137466211-f939a420be84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1615529182904-14819c35db37?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+  "/006.jpg",
+  "/32.jpg",
+  "/011.jpg",
+  "/012.jpg",
+  "/014.png",
+  "/015.jpg",
+  "/016.jpg",
+  "/017.jpg",
+  "/018.jpg",
+  "/019.JPG",
+  "/008.png",
+  "/009.jpg",
+  "/007.png",
+  "/004.png",
+  "/003 (2).jpg",
+  "/002.jpg",
+  "/001.jpg",
+  "/5.jpg",
 ]
 
 const projects = [
@@ -20,18 +32,18 @@ const projects = [
   { title: "Char Adhyay", location: "Mumbai", year: "1997", id: 4, imageUrl: interiorDesignImages[3] },
   { title: "Kasaba", location: "Mumbai", year: "1991", id: 5, imageUrl: interiorDesignImages[4] },
   { title: "Bhavantarana", location: "Mumbai", year: "1991", id: 6, imageUrl: interiorDesignImages[5] },
-  { title: "Maya Darpan", location: "Mumbai", year: "1972", id: 7, imageUrl: interiorDesignImages[0] },
-  { title: "Khayal Gatha", location: "Mumbai", year: "1989", id: 8, imageUrl: interiorDesignImages[1] },
-  { title: "Tarang", location: "Mumbai", year: "1984", id: 9, imageUrl: interiorDesignImages[2] },
-  { title: "Char Adhyay", location: "Mumbai", year: "1997", id: 10, imageUrl: interiorDesignImages[3] },
-  { title: "Kasaba", location: "Mumbai", year: "1991", id: 11, imageUrl: interiorDesignImages[4] },
-  { title: "Bhavantarana", location: "Mumbai", year: "1991", id: 12, imageUrl: interiorDesignImages[5] },
-  { title: "Maya Darpan", location: "Mumbai", year: "1972", id: 13, imageUrl: interiorDesignImages[0] },
-  { title: "Khayal Gatha", location: "Mumbai", year: "1989", id: 14, imageUrl: interiorDesignImages[1] },
-  { title: "Tarang", location: "Mumbai", year: "1984", id: 15, imageUrl: interiorDesignImages[2] },
-  { title: "Char Adhyay", location: "Mumbai", year: "1997", id: 16, imageUrl: interiorDesignImages[3] },
-  { title: "Kasaba", location: "Mumbai", year: "1991", id: 17, imageUrl: interiorDesignImages[4] },
-  { title: "Bhavantarana", location: "Mumbai", year: "1991", id: 18, imageUrl: interiorDesignImages[5] },
+  { title: "Maya Darpan", location: "Mumbai", year: "1972", id: 7, imageUrl: interiorDesignImages[6] },
+  { title: "Khayal Gatha", location: "Mumbai", year: "1989", id: 8, imageUrl: interiorDesignImages[7] },
+  { title: "Tarang", location: "Mumbai", year: "1984", id: 9, imageUrl: interiorDesignImages[8] },
+  { title: "Char Adhyay", location: "Mumbai", year: "1997", id: 10, imageUrl: interiorDesignImages[9] },
+  { title: "Kasaba", location: "Mumbai", year: "1991", id: 11, imageUrl: interiorDesignImages[10] },
+  { title: "Bhavantarana", location: "Mumbai", year: "1991", id: 12, imageUrl: interiorDesignImages[11] },
+  { title: "Maya Darpan", location: "Mumbai", year: "1972", id: 13, imageUrl: interiorDesignImages[12] },
+  { title: "Khayal Gatha", location: "Mumbai", year: "1989", id: 14, imageUrl: interiorDesignImages[13] },
+  { title: "Tarang", location: "Mumbai", year: "1984", id: 15, imageUrl: interiorDesignImages[14] },
+  { title: "Char Adhyay", location: "Mumbai", year: "1997", id: 16, imageUrl: interiorDesignImages[15] },
+  { title: "Kasaba", location: "Mumbai", year: "1991", id: 17, imageUrl: interiorDesignImages[16] },
+  { title: "Bhavantarana", location: "Mumbai", year: "1991", id: 18, imageUrl: interiorDesignImages[17] },
 ]
 
 const ProjectsShowcase = forwardRef((props, ref) => {
@@ -73,7 +85,7 @@ const ProjectsShowcase = forwardRef((props, ref) => {
                 className="object-cover"
                 loading="lazy"
                 placeholder="blur"
-                blurDataURL={project.imageUrl}
+                blurDataURL="data:image/png;base64,..." 
               />
               <motion.div
                 className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-end p-2 text-white"

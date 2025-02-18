@@ -5,11 +5,11 @@ import Image from "next/image"
 
 const images = [
   {
-    src: "/4.png",
+    src: "/1 copy.jpg",
     alt: "Mountain peak with dramatic clouds",
   },
   {
-    src: "/3.png",
+    src: "/6.jpg",
     alt: "Autumn tree reflected in still water",
   },
   {
